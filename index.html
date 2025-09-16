@@ -31,8 +31,14 @@
         .color-section {flex: 1; cursor: pointer; border: none; outline: none;
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;}
-        
+            background-repeat: no-repeat;
+            transition: filter 0.2s ease-in-out;}
+
+        .color-section.active {
+            filter: brightness(70%) sepia(100%) hue-rotate(-20deg) saturate(300%);
+            border: 3px solid red;
+        }
+            
         .container {height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
             background: black;}
         
@@ -100,6 +106,7 @@
     const Sound6 = document.getElementById('Sound6'); 
 
     Button1.onclick = function() {
+        Button1.classList.toggle('active');
         if (B1play == true) {
             Sound1.pause();
             Sound1.currentTime = 0;
@@ -111,6 +118,7 @@
     };
 
     Button2.onclick = function() {
+        Button2.classList.toggle('active');
         if (B2play == true) {
             Sound2.pause();
             Sound2.currentTime = 0;
@@ -122,6 +130,7 @@
     };
 
     Button3.onclick = function() {
+        Button3.classList.toggle('active');
         if (B3play == true) {
             Sound3.pause();
             Sound3.currentTime = 0;
@@ -133,6 +142,7 @@
     };
 
     Button4.onclick = function() {
+        Button4.classList.toggle('active');
         if (B4play == true) {
             Sound4.pause();
             Sound4.currentTime = 0;
@@ -144,6 +154,7 @@
     };
 
     Button5.onclick = function() {
+        Button5.classList.toggle('active');
         if (B5play == true) {
             Sound5.pause();
             Sound5.currentTime = 0;
@@ -155,6 +166,7 @@
     };
 
     Button6.onclick = function() {
+        Button6.classList.toggle('active');
         if (B6play == true) {
             Sound6.pause();
             Sound6.currentTime = 0;
