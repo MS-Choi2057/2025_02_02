@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>알람으로 딱! 좋아</title>
+    <style>
+    	@font-face {
+    	font-family: 'SfHambakneun';
+    	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_HambakSnow.woff') format('woff');
+    	font-weight: normal;
+    	font-display: swap;}
+
+        @font-face {
+        font-family: 'RoundedFixedsys';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+        font-weight: normal;
+        font-display: swap;}
+
+        * {margin: 0;
+            padding: 0;
+            box-sizing: border-box;}
+        
+        body{font-family: 'SfHambakneun'; margin: 0; padding: 0;
+            min-height: 100vh; display: flex; flex-direction: column;}
+        
+        .color-strip-top{height: 30vh; display: flex;}
+        
+        .color-strip-bottom {height: 30vh; display: flex;}
+        
+        .color-section {flex: 1; cursor: pointer; border: none; outline: none;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;}
+        
+        .container {height: 40vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: black;}
+        
+        .title {color: white; text-align: center; margin: 0; padding: 20px; width: 100%;}
+        
+        .title h1 {font-size: 6rem; margin-bottom: 40px;}
+        
+        .title p {font-size: 2rem; opacity: 0.6; margin-top: 10px;}
+
+        #Button1 { background-image: url('image1.jpg'); }
+        #Button2 { background-image: url('image2.jpg'); }
+        #Button3 { background-image: url('image3.jpg'); }
+        #Button4 { background-image: url('image4.png'); }
+        #Button5 { background-image: url('image5.png'); }
+        #Button6 { background-image: url('image6.png'); }
+    </style>
+</head>
+<body>
+    <div class="color-strip-top">
+        <button class="color-section" id="Button1" src="image1.jpg"></button>
+        <button class="color-section" id="Button2" src="image2.jpg"></button>
+        <button class="color-section" id="Button3" src="image3.jpg"></button>
+    </div>
+    
+    <div class="container">
+        <div class="title">
+            <h1>알람으로 딱! 좋아</h1>
+            <div id="clock" style="font-family: 'RoundedFixedsys'; font-size: 4rem; margin-bottom: 20px; color: #00ff00;"></div>
+            <p>~우리 모두 제시간에 일어나 보아요~</p>
+            <p style="font-size: 1.5rem; color: #ff0000; opacity: 1.0;">!소리 크기 주의!</p>
+        </div>
+    </div>
+    
+    <div class="color-strip-bottom">
+        <button class="color-section" id="Button4" src="image4.png"></button>
+        <button class="color-section" id="Button5" src="image5.png"></button>
+        <button class="color-section" id="Button6" src="image6.png"></button>
+    </div>
+
+    <audio id="Sound1" src="Sound1.mp3"></audio>
+    <audio id="Sound2" src="Sound2.mp3"></audio>
+    <audio id="Sound3" src="Sound3.mp3"></audio>
+    <audio id="Sound4" src="Sound4.mp3"></audio>
+    <audio id="Sound5" src="Sound5.mp3"></audio>
+    <audio id="Sound6" src="Sound6.mp3"></audio>
+
+    <script>
+    let B1play = false;
+    let B2play = false;
+    let B3play = false;
+    let B4play = false;
+    let B5play = false;
+    let B6play = false;
+    const Button1 = document.getElementById('Button1');
+    const Button2 = document.getElementById('Button2');
+    const Button3 = document.getElementById('Button3');
+    const Button4 = document.getElementById('Button4');
+    const Button5 = document.getElementById('Button5');
+    const Button6 = document.getElementById('Button6');
+    const Sound1 = document.getElementById('Sound1');
+    const Sound2 = document.getElementById('Sound2');
+    const Sound3 = document.getElementById('Sound3');
+    const Sound4 = document.getElementById('Sound4');
+    const Sound5 = document.getElementById('Sound5');
+    const Sound6 = document.getElementById('Sound6'); 
+
+    Button1.onclick = function() {
+        if (B1play == true) {
+            Sound1.pause();
+            Sound1.currentTime = 0;
+            B1play = false;
+        } else {
+            Sound1.play();
+            B1play = true;
+        }
+    };
+
+    Button2.onclick = function() {
+        if (B2play == true) {
+            Sound2.pause();
+            Sound2.currentTime = 0;
+            B2play = false;
+        } else {
+            Sound2.play();
+            B2play = true;
+        }
+    };
+
+    Button3.onclick = function() {
+        if (B3play == true) {
+            Sound3.pause();
+            Sound3.currentTime = 0;
+            B3play = false;
+        } else {
+            Sound3.play();
+            B3play = true;
+        }
+    };
+
+    Button4.onclick = function() {
+        if (B4play == true) {
+            Sound4.pause();
+            Sound4.currentTime = 0;
+            B4play = false;
+        } else {
+            Sound4.play();
+            B4play = true;
+        }
+    };
+
+    Button5.onclick = function() {
+        if (B5play == true) {
+            Sound5.pause();
+            Sound5.currentTime = 0;
+            B5play = false;
+        } else {
+            Sound5.play();
+            B5play = true;
+        }
+    };
+
+    Button6.onclick = function() {
+        if (B6play == true) {
+            Sound6.pause();
+            Sound6.currentTime = 0;
+            B6play = false;
+        } else {
+            Sound6.play();
+            B6play = true;
+        }
+    };
+
+    const clock = document.getElementById('clock');
+    function updateClock() {
+        const now = new Date();
+
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const milliseconds = String(now.getMilliseconds()).padStart(3, '0');
+
+        clock.textContent = `${hours}:${minutes}:${seconds}.${milliseconds}`;
+    }
+    setInterval(updateClock, 10);
+
+    </script>
+</body>
+</html>
